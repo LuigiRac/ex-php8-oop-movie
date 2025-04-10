@@ -6,4 +6,9 @@ class Movie {
     public $director;
     public $year;
     public $genre;
+
+    public function getDirector() {
+        return $this->director;
+    }
+
 };
