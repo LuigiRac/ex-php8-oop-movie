@@ -1,5 +1,15 @@
 <?php
 
+class Genre{
+
+    public $name;
+
+    function __construct($name){
+     $this -> name = $name;
+}
+
+};
+
 class Movie {
     
     public $title;
@@ -8,7 +18,7 @@ class Movie {
     public $description;
     public $genre;
 
-    function __construct($title, $director, $year, $description ,$genre) {
+    function __construct($title, $director, $year, $description ,Genre $genre) {
         $this->title = $title;
         $this->director = $director;
         $this->year = $year;
@@ -23,12 +33,17 @@ class Movie {
 };
 
 
+$superhero = new Genre("Superhero");
+$crime = new Genre("Crime");
+$drama = new Genre("Drama");
+$fantasy = new Genre("Fantasy");
+
 $movie1 = new Movie(
     "Spiderman", 
     "Sam Raimi", 
     2002, 
     "Peter Parker, un giovane fotografo, acquisisce poteri sovrumani dopo il morso di un ragno geneticamente modificato.",
-    "superhero"
+    $superhero
 );
 
 $movie2 = new Movie(
@@ -36,7 +51,7 @@ $movie2 = new Movie(
     "Quentin Tarantino", 
     1992, 
     "Una rapina andata male porta sei criminali, che non si conoscono tra loro, a sospettare che uno di loro sia una spia della polizia.",
-    "crime"
+    $crime
 );
 
 $movie3 = new Movie(
@@ -44,7 +59,7 @@ $movie3 = new Movie(
     "Robert Zemeckis", 
     1994, 
     "La straordinaria vita di Forrest Gump, un uomo semplice con un cuore puro, che attraversa decenni di storia americana.",
-    "drama"
+    $drama
 );
 
 $movie4 = new Movie(
@@ -52,7 +67,7 @@ $movie4 = new Movie(
     "Peter Jackson", 
     2001, 
     "Il giovane hobbit Frodo Baggins intraprende un epico viaggio per distruggere l’Unico Anello e salvare la Terra di Mezzo dall’Oscuro Signore Sauron.",
-    "fantasy"
+    $fantasy
 );
 
 // var_dump($movie1, $movie2, $movie3, $movie4);
@@ -81,7 +96,7 @@ $movies = [$movie1, $movie2, $movie3, $movie4];
                         <p class="card-text"><<?php echo $movie -> director ?></p>
                         <p class="card-text"><?php echo $movie -> year?></p>
                         <p class="card-text"><?php echo $movie -> description?></p>
-                        <p class="card-text"><?php echo $movie -> genre?></p>
+                        <p class="card-text"><?php echo $movie -> genre -> name?></p>
                     </div>
                 </div>
             </div>
