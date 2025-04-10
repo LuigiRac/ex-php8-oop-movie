@@ -8,7 +8,7 @@ class Movie {
     public $description;
     public $genre;
 
-    function __cosstruct($title, $director, $year, $description ,$genre) {
+    function __construct($title, $director, $year, $description ,$genre) {
         $this->title = $title;
         $this->director = $director;
         $this->year = $year;
@@ -54,3 +54,40 @@ $movie4 = new Movie(
     "Il giovane hobbit Frodo Baggins intraprende un epico viaggio per distruggere l’Unico Anello e salvare la Terra di Mezzo dall’Oscuro Signore Sauron.",
     "fantasy"
 );
+
+// var_dump($movie1, $movie2, $movie3, $movie4);
+$movies = [$movie1, $movie2, $movie3, $movie4];
+
+?>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-5">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <?php foreach($movies as $movie){?>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $movie -> title ?></h5>
+                        <p class="card-text"><<?php echo $movie -> director ?></p>
+                        <p class="card-text"><?php echo $movie -> year?></p>
+                        <p class="card-text"><?php echo $movie -> description?></p>
+                        <p class="card-text"><?php echo $movie -> genre?></p>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+
+</body>
+</html>
